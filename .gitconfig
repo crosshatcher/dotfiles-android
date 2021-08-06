@@ -1,0 +1,94 @@
+# vim:fenc=utf-8:ft=gitconfig:ts=2:sts=2:sw=2:et:
+
+[core]
+  pager = diff-so-fancy | less --tabs=4 -FRX
+  compression = 9
+  hooksPath = .git/hooks
+	excludesFile = ~/.config/git/gitignore_global
+[init]
+  templateDir = ~/.config/git/template
+  defaultBranch = master
+[pager]
+  diff = diff-so-fancy | less --tabs=4 -RFXS --pattern '^(Data|added|deleted|modified): '
+	dsf = diff-so-fancy | less --tabs=4 -RFXS
+[stash]
+  showPatch = true
+[commit]
+	gpgsign = true
+[push]
+  default = simple
+[receive]
+    denyCurrentBranch = warn
+[receive]
+    denyCurrentBranch = warn
+[diff]
+  renames = copies
+[merge]
+  log = true
+[log]
+  decorate = auto
+[merge "wiggle"]
+	name = "Wiggle flexible merging"
+	driver = wiggle -o %A %A %O %B
+	recursive = binary
+[mergetool "wiggle"]
+	cmd = wiggle -B -o $MERGED $LOCAL $BASE $REMOTE
+[difftool "wiggle"]
+	cmd = wiggle -Bd $LOCAL $REMOTE
+[submodule]
+	recurse = true
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
+[user]
+  name = crosshatcher
+  email = crosshatcher@onionmail.com
+  signingkey = 0x6359AA042FBC06D2
+[github]
+  user = wandsas
+[gpg]
+  program = gpg
+
+[alias]
+	alias = "!git config -l | sed -n 's/^alias\\.//p'"
+	d = diff -c HEAD
+	dsf = diff --color
+	ix = diff --cached
+  l = log --pretty='format:%h %s%d' -n 20 --graph
+	lg = log --date=short --pretty='%cd %h%d %s'
+	lop = log -p
+	ls = ls-files
+	mlist = "!git diff --name-only --diff-filter=U"
+  patch = !git --no-pager diff --no-color
+  puff = pull --ff-only
+	pura = pull --rebase --autostash
+	rank = shortlog -sn --no-merges
+	sprunge = "!_(){ git format-patch --stdout \"$@\" |curl -sF 'sprunge=<-' http://sprunge.us ;}; _"
+	st = status -s -uno
+	stu = status -s -unormal
+	tree = log --oneline --decorate --graph
+	which = "!_() { git config --global --get alias.$1;};_"
+ colors
+[color]
+	ui = true
+    branch = yes
+    pager = yes
+    diff = auto
+    status = auto
+    interactive = always
+[color "branch"]
+    current = green
+    local = yellow
+    remote  = cyan
+[color "diff"]
+    meta = yellow
+    frag = magenta
+    old = red
+    new = green
+[color "interactive"]
+    error = red bold
+[color "status"]
+    header = magenta
+    added = yellow
+    changed = green
+    untracked = cyan
