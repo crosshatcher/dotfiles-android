@@ -4,10 +4,10 @@
 # http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap08.html#tag_08_03
 export LANG=en_US.UTF-8
 export LC_COLLATE=C
-export DISPLAY=:0.0
 export EDITOR=vim VISUAL=vim
 export PAGER=less
 export PATH=${PATH:-/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin}
+export DISPLAY=:0.0
 
 # XDG path variables
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
