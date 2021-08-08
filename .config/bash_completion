@@ -1,0 +1,10 @@
+
+# Local user bash-completion scripts
+
+_have () {
+    type -P $1 >/dev/null 2>&1
+}
+
+for sh in ${XDG_CONFIG_HOME:-~/.config}/bash_completion.d/*.sh; do
+    [ -r "$sh" ] && . "$sh"
+done
