@@ -27,6 +27,7 @@ export LESS="-R -M"
 export LESSOPEN="|lesspipe %s"
 export LESSHISTFILE={XDG_CACHE_HOME}/less_history
 
+export TMUX_TMPDIR=${XDG_RUNTIME_DIR}
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 export RIPGREP_CONFIG_PATH=${XDG_CONFIG_HOME}/ripgreprc
 export SSH_ASKPASS=gnome-ssh-askpass
