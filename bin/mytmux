@@ -19,10 +19,10 @@ fi
 tmux new-session -d -s ${tmux_session}
     
 tmux rename-window -t ${tmux_session}:1 "BUILD"
-tmux send-keys -t ${tmux_session}:1
+tmux send-keys -t ${tmux_session}:1 'ls' C-m
 
 tmux new-window -t ${tmux_session}:2
-tmux send-keys -t ${tmux_session}:2
+tmux send-keys -t ${tmux_session}:2 'htop' C-m
 tmux split-window -d
 
 tmux attach-session -t ${tmux_session}:1
