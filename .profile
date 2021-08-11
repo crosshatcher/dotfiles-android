@@ -28,6 +28,7 @@ export LESSOPEN="|lesspipe %s"
 export LESSHISTFILE={XDG_CACHE_HOME}/less_history
 
 export TMUX_TMPDIR=${XDG_RUNTIME_DIR}
+export GTK2_RC_FILES=${XDG_CONFIG_HOME}/gtk-2.0/gtkrc
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 export RIPGREP_CONFIG_PATH=${XDG_CONFIG_HOME}/ripgreprc
 export SSH_ASKPASS=gnome-ssh-askpass
