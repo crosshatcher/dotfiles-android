@@ -1,0 +1,28 @@
+#!/bin/sh
+
+tmux_session="dev_env"
+
+# If tmux session already exist -> attach-session.
+if tmux has-session -t ${tmux_session} 2>/dev/null; then
+    info "${tmux_session} session already exists! Attaching ..."
+    tmux attach-session -t ${tmux_session}
+    exit
+fi
+
+# If user is already in a tmux session -> detach-client.
+if [ -n "${TMUX}" ]; then
+    warn "Detach from the tmux server before running this."
+    exit 1
+fi
+
+
+tmux new-session -d -s ${tmux_session}
+    
+tmux rename-window -t ${tmux_session}:1 "BUILD"
+tmux send-keys -t ${tmux_session}:1
+
+tmux new-window -t ${tmux_session}:2
+tmux send-keys -t ${tmux_session}:2
+tmux split-window -d
+
+tmux attach-session -t ${tmux_session}:1
