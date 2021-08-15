@@ -17,6 +17,8 @@
 	gpgsign = true
 [push]
   default = simple
+[pull]
+	only = true
 [receive]
     denyCurrentBranch = warn
 [receive]
