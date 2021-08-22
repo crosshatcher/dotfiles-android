@@ -19,6 +19,7 @@
   default = simple
 [pull]
 	only = true
+	ff = only
 [receive]
     denyCurrentBranch = warn
 [receive]
